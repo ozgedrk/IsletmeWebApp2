@@ -27,12 +27,12 @@
     <link href="css/styles.css" rel="stylesheet">
     <!-- Favicon  -->
     <link rel="icon" href="~/images/favicon.png">
-    <style>
-        .navbar-brand.logo-text {
-            font-size: 36px;
-            font-weight: bold;
-        }
-    </style>
+    @*     <style>
+    .navbar-brand.logo-text {
+    font-size: 36px;
+    font-weight: bold;
+    }
+    </style> *@
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarExample">
 
@@ -41,9 +41,9 @@
         <div class="container">
 
             <!-- Image Logo -->
-            @*    <a class="navbar-brand logo-image" asp-controller="Home" asp-action="Index"><img src="images/logo.svg" alt="alternative" height="50" width="50"></a> *@
+            <a class="navbar-brand logo-image" asp-controller="Home" asp-action="Index"><img src="images/logo.svg" alt="alternative"></a>
 
-            <a class="navbar-brand logo-text" asp-controller="Home" asp-action="Index">KD DANISMANLIK</a>
+            @* <a class="navbar-brand logo-text" asp-controller="Home" asp-action="Index">KD DANISMANLIK</a> *@
 
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
@@ -431,9 +431,7 @@
                             <a class="btn-solid-reg">Bize Ulaşın</a>
                         </div>
                     </div>
-
                     <!-- end of card -->
-
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->

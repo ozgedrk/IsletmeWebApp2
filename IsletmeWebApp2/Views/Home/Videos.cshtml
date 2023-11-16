@@ -41,7 +41,27 @@
     <link href="/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="/css/swiper.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
+    <style>
+        .video-container {
+            position: relative;
+            display: inline-block;
+        }
 
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            display: none;
+        }
+
+        .video-container:hover .play-icon {
+            display: block;
+        }
+    </style>
     <!-- Favicon  -->
     <link rel="icon" href="~/images/favicon.png">
 </head>
@@ -122,18 +142,26 @@
     </div>
     </div>
     </div> <!-- end of container --> *@
+
+
     <div class="ex-basic-1 pt-5 pb-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <iframe width="560" height="315" src="/images/video2.mp4" frameborder="0" allowfullscreen></iframe>
+                <div class="col-md-12 video-container text-center  bg-transparent" onmouseover="playVideo('video1')" onmouseout="pauseVideo('video1')">
+                    <iframe id="video1" width="560" height="315" src="@Url.Content("~/images/video2.mp4")" frameborder="0" allowfullscreen class="mx-auto"></iframe>
+                    <div class="play-icon" onclick="toggleVideo('video1')">▶</div>
                 </div>
-                <div class="col-md-6">
-                    <iframe width="560" height="315" src="/images/video1.mp4" frameborder="0" allowfullscreen></iframe>
+            </div> <!-- end of row -->
+
+            <div class="row">
+                <div class="col-md-12 video-container text-center bg-transparent" onmouseover="playVideo('video2')" onmouseout="pauseVideo('video2')">
+                    <iframe id="video2" width="560" height="315" src="@Url.Content("~/images/video1.mp4")" frameborder="0" allowfullscreen class="mx-auto"></iframe>
+                    <div class="play-icon" onclick="toggleVideo('video2')">▶</div>
                 </div>
             </div> <!-- end of row -->
         </div> <!-- end of container -->
     </div>
+
 
 
     <!-- end of basic -->
@@ -211,5 +239,28 @@
     <script src="/js/purecounter.min.js"></script> <!-- Purecounter counter for statistics numbers -->
     <script src="/js/replaceme.min.js"></script> <!-- ReplaceMe for rotating text -->
     <script src="/js/scripts.js"></script> <!-- Custom scripts -->
+
+    <script>
+        function playVideo(videoId) {
+            var video = document.getElementById(videoId);
+            video.play();
+        }
+
+        function pauseVideo(videoId) {
+            var video = document.getElementById(videoId);
+            video.pause();
+            video.currentTime = 0; // Videonun başlangıcına geri dön
+        }
+
+        function toggleVideo(videoId) {
+            var video = document.getElementById(videoId);
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+                video.currentTime = 0; // Videonun başlangıcına geri dön
+            }
+        }
+    </script>
 </body>
 </html>
